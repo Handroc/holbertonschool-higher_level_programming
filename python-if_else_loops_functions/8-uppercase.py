@@ -1,3 +1,8 @@
 #!/usr/bin/python3
 def uppercase(str):
-    print(''.join(chr(ord(i) - 32) if ord(i) in range(ord('a'), ord('z') + 1) else i for i in str))
+    for i in str:
+        if ord(i) in range(ord('a'), ord('z') + 1):
+            print("{0}".format(chr(ord(i) - 32)), end="")
+        else:
+            print("{0}".format(i), end="")
+    print()
