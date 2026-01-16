@@ -1,3 +1,2 @@
 #!/usr/bin/python3
-for i in range(0, 99):
-    print(i, '=', hex(i))
+print('\n'.join(str(i) + ' = ' + hex(i) for i in range(0, 99)))
