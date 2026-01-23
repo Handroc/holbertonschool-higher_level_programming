@@ -1,0 +1,45 @@
+>>> print_square = __import__('4-print_square').print_square
+
+# normal cases
+>>> print_square(3)
+###
+###
+###
+
+>>> print_square(1)
+#
+
+>>> print_square(0)
+
+# size not an integer
+>>> print_square("3")
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/doctest.py", line 1361, in __run
+    exec(compile(example.source, filename, "single",
+  File "<doctest 4-print_square.print_square[3]>", line 1, in <module>
+    print_square("3")
+  File "/home/holbertonschool-higher_level_programming/python-test_driven_development/4-print_square.py", line 2, in print_square
+    raise TypeError("size must be an integer")
+TypeError: size must be an integer
+
+# negative size
+>>> print_square(-3)
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/doctest.py", line 1361, in __run
+    exec(compile(example.source, filename, "single",
+  File "<doctest 4-print_square.print_square[4]>", line 1, in <module>
+    print_square(-3)
+  File "/home/holbertonschool-higher_level_programming/python-test_driven_development/4-print_square.py", line 4, in print_square
+    raise ValueError("size must be >= 0")
+ValueError: size must be >= 0
+
+# float size
+>>> print_square(3.5)
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/doctest.py", line 1361, in __run
+    exec(compile(example.source, filename, "single",
+  File "<doctest 4-print_square.print_square[5]>", line 1, in <module>
+    print_square(3.5)
+  File "/home/holbertonschool-higher_level_programming/python-test_driven_development/4-print_square.py", line 2, in print_square
+    raise TypeError("size must be an integer")
+TypeError: size must be an integer
