@@ -11,20 +11,18 @@ My name is
 
 >>> say_my_name(12, "Smith")
 Traceback (most recent call last):
-  File "/usr/lib/python3.12/doctest.py", line 1361, in __run
-    exec(compile(example.source, filename, "single",
-  File "<doctest 3-say_my_name.say_my_name[3]>", line 1, in <module>
-    say_my_name(12, "Smith")
-  File "/home/holbertonschool-higher_level_programming/python-test_driven_development/3-say_my_name.py", line 2, in say_my_name
+  File "/home/androc/holbertonschool-higher_level_programming/python-test_driven_development/3-say_my_name.py", line 2, in say_my_name
     raise TypeError("first_name must be a string")
 TypeError: first_name must be a string
 
 >>> say_my_name("John", 42)
 Traceback (most recent call last):
-  File "/usr/lib/python3.12/doctest.py", line 1361, in __run
-    exec(compile(example.source, filename, "single",
-  File "<doctest 3-say_my_name.say_my_name[4]>", line 1, in <module>
-    say_my_name("John", 42)
-  File "/home/holbertonschool-higher_level_programming/python-test_driven_development/3-say_my_name.py", line 4, in say_my_name
+  File "/home/androc/holbertonschool-higher_level_programming/python-test_driven_development/3-say_my_name.py", line 4, in say_my_name
     raise TypeError("last_name must be a string")
 TypeError: last_name must be a string
+
+>>> say_my_name()
+Traceback (most recent call last):
+  File "/home/androc/holbertonschool-higher_level_programming/python-test_driven_development/./3-main.py", line 5, in <module>
+    say_my_name()
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
