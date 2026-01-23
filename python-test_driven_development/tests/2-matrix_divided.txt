@@ -1,0 +1,67 @@
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+>>> matrix_divided([[1, 2], [3, 4]], 2)
+[[0.5, 1.0], [1.5, 2.0]]
+
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 3)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+>>> matrix_divided([[1.5, 2.5]], 2)
+[[0.75, 1.25]]
+
+>>> matrix_divided([[2, 4]], 2.0)
+[[1.0, 2.0]]
+
+>>> matrix_divided([[-2, -4], [6, 8]], 2)
+[[-1.0, -2.0], [3.0, 4.0]]
+
+>>> matrix_divided([[2, 4]], -2)
+[[-1.0, -2.0]]
+
+>>> matrix_divided([[1, 2], [3, 4]], "2")
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/doctest.py", line 1361, in __run
+    exec(compile(example.source, filename, "single",
+  File "<doctest 2-matrix_divided.matrix_divided[4]>", line 1, in <module>
+    matrix_divided([[1, 2], [3, 4]], "2")
+  File "/home/holbertonschool-higher_level_programming/python-test_driven_development/2-matrix_divided.py", line 3, in matrix_divided
+    raise TypeError("div must be a number")
+TypeError: div must be a number
+
+>>> matrix_divided([[1, 2]], 0)
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/doctest.py", line 1361, in __run
+    exec(compile(example.source, filename, "single",
+  File "<doctest 2-matrix_divided.matrix_divided[5]>", line 1, in <module>
+    matrix_divided([[1, 2]], 0)
+  File "/home/holbertonschool-higher_level_programming/python-test_driven_development/2-matrix_divided.py", line 5, in matrix_divided
+    raise ZeroDivisionError("division by zero")
+ZeroDivisionError: division by zero
+
+>>> matrix_divided([[1, "2"], [3, 4]], 2)
+Traceback (most recent call last):
+    File "/usr/lib/python3.12/doctest.py", line 1361, in __run
+        exec(compile(example.source, filename, "single",
+    File "<doctest 2-matrix_divided.txt[9]>", line 1, in <module>
+        matrix_divided([[1, "2"], [3, 4]], 2)
+    File "/home/androc/holbertonschool-higher_level_programming/python-test_driven_development/2-matrix_divided.py", line 16, in matrix_divided
+        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix_divided([], 2)
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/doctest.py", line 1361, in __run
+    exec(compile(example.source, filename, "single",
+  File "<doctest 2-matrix_divided.matrix_divided[8]>", line 1, in <module>
+    matrix_divided([], 2)
+IndexError: list index out of range
+
+>>> matrix_divided("not a matrix", 2)
+Traceback (most recent call last):
+    File "/usr/lib/python3.12/doctest.py", line 1361, in __run
+        exec(compile(example.source, filename, "single",
+    File "<doctest 2-matrix_divided.txt[11]>", line 1, in <module>
+        matrix_divided("not a matrix", 2)
+    File "/home/androc/holbertonschool-higher_level_programming/python-test_driven_development/2-matrix_divided.py", line 16, in matrix_divided
+        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+TypeError: matrix must be a matrix (list of lists) of integers/floats

@@ -1,0 +1,43 @@
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(7, 3)
+10
+>>> add_integer(3, -7)
+-4
+>>> add_integer(7.2, 3)
+10
+>>> add_integer(7, "3")
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/doctest.py", line 1361, in __run
+    exec(compile(example.source, filename, "single",
+  File "<doctest 0-add_integer.add_integer[3]>", line 1, in <module>
+    add_integer(7, "3")
+  File "/home/holbertonschool-higher_level_programming/python-test_driven_development/tests/0-add_integer.txt", line 38, in add_integer
+    raise TypeError("b must be an integer")
+TypeError: b must be an integer
+>>> add_integer("7", "3")
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/doctest.py", line 1361, in __run
+    exec(compile(example.source, filename, "single",
+  File "<doctest 0-add_integer.add_integer[4]>", line 1, in <module>
+    add_integer("7", "3")
+  File "/home/holbertonschool-higher_level_programming/python-test_driven_development/tests/0-add_integer.txt", line 36, in add_integer
+    raise TypeError("a must be an integer")
+TypeError: a must be an integer
+>>> add_integer()
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/doctest.py", line 1361, in __run
+    exec(compile(example.source, filename, "single",
+  File "<doctest 0-add_integer.add_integer[5]>", line 1, in <module>
+    add_integer()
+TypeError: add_integer() missing 1 required positional argument: 'a'
+>>> add_integer(3)
+101
+>>> add_integer(1e1000 ** 1e1000)
+Traceback (most recent call last):
+  File "/home/holbertonschool-higher_level_programming/python-test_driven_development/./0-main.py", line 12, in <module>
+    print(add_integer(1e1000 ** 1e1000))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/holbertonschool-higher_level_programming/python-test_driven_development/0-add_integer.py", line 19, in add_integer
+    a = int(a)
+        ^^^^^^
+OverflowError: cannot convert float infinity to integer
