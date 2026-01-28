@@ -73,7 +73,7 @@ class Rectangle:
             return ""
         rect = ""
         for i in range(self.__height):
-            rect += str(Rectangle.print_symbol) * self.__width
+            rect += str(self.print_symbol) * self.__width
             if i != self.__height - 1:
                 rect += "\n"
         return rect
@@ -96,7 +96,7 @@ class Rectangle:
             raise TypeError(msg_err_ins1)
         if not (isinstance(rect_2, Rectangle)):
             raise TypeError(msg_err_ins2)
-        if rect_1.area >= rect_2.area:
+        if rect_1.area() >= rect_2.area():
             return rect_1
         else:
             return rect_2
