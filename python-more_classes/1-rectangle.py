@@ -20,17 +20,17 @@ class Rectangle:
         if height < 0:
             raise ValueError(msg_err_neg)
         self.__height = height
-    
+
     @property
     def width(self):
         """Returns the width of the rectangle."""
         return self.__width
-    
+
     @property
     def height(self):
         """Returns the height of the rectangle."""
         return self.__height
-    
+
     @width.setter
     def width(self, value):
         """Function that sets the width of the rectangle."""
@@ -41,7 +41,7 @@ class Rectangle:
         if value < 0:
             raise ValueError(msg_err_neg)
         self.__width = value
-    
+
     @height.setter
     def height(self, value):
         """Function that sets the height of the rectangle."""
