@@ -5,7 +5,7 @@
 class Rectangle:
     """Class that initializes a rectangle and the number of instances"""
     number_of_instances = 0
-    print_symbol = "#"
+    print_symbol = None
 
     def __init__(self, width=0, height=0):
         """Function that initializes the rectangle."""
@@ -24,6 +24,7 @@ class Rectangle:
             raise ValueError(msg_err_neg)
         self.__height = height
         Rectangle.number_of_instances += 1
+        Rectangle.print_symbol = "#"
 
     @property
     def width(self):
