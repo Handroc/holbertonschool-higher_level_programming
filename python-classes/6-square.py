@@ -4,12 +4,9 @@ Docstring for 0-square.py
 """
 
 class Square:
+    """Class that defines a square by size"""
     def __init__(self, size=0, position=(0, 0)):
-        """
-        Docstring for __init__
-        :param size: size of the square
-        :param position: position of the square
-        """
+        """Function that initializes the size and the position"""
         msg_err = "size must be an integer"
         msg_err_size = "size must be >= 0"
         msg_err_tuple = "position must be a tuple of 2 positive integers"
