@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 """
-Docstring for 0-square.py
+Square
 """
 
+
 class Square:
-    """
-    Docstring for Square class
-    """
+    """Class that defines a square"""
     pass
