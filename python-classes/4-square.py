@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
-Docstring for 0-square.py
+Square
 """
+
 
 class Square:
     """Class that defines a square by size"""
