@@ -7,7 +7,13 @@ Square
 class Square:
     """Class that defines a square by size"""
     def __init__(self, size=0):
-        """Function that initializes the size"""
+        """Function that initializes the size.
+        
+        Args:
+            param1 (int): size of the square
+            param2 (int): position of the square
+        
+        """
         msg_err = "size must be an integer"
         msg_err_size = "size must be >= 0"
         if type(size) is not int:
