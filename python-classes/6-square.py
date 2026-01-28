@@ -23,17 +23,17 @@ class Square:
             raise TypeError(msg_err_tuple)
         self.__size = size
         self.__position = position
-    
+
     @property
     def size(self):
         """Returns the size of the square."""
         return self.__size
-    
+
     @property
     def position(self):
         """Returns the position of the square."""
         return self.__position
-    
+
     @size.setter
     def size(self, value):
         """
@@ -47,7 +47,7 @@ class Square:
         if value < 0:
             raise ValueError(msg_err_size)
         self.__size = value
-    
+
     @position.setter
     def position(self, value):
         """
@@ -64,11 +64,11 @@ class Square:
         if value[0] < 0 or value[1] < 0:
             raise TypeError(msg_err_tuple)
         self.__position = value
-    
+
     def area(self):
         """Calculates the area of the square."""
         return self.__size ** 2
-    
+
     def my_print(self):
         """Prints the square with the character #."""
         if self.__size == 0:
