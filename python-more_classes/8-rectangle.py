@@ -95,7 +95,7 @@ class Rectangle:
             raise TypeError(msg_err_ins1)
         if not (isinstance(rect_2, Rectangle)):
             raise TypeError(msg_err_ins2)
-        if rect_1.area != rect_2.area:
-            return max(rect_1.area, rect_2.area)
+        if rect_1.area >= rect_2.area:
+            return rect_1
         else:
-            return rect_1.area
+            return rect_2
