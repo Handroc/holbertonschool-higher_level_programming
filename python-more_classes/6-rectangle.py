@@ -3,7 +3,9 @@
 
 
 class Rectangle:
-    """Class that initializes a rectangle"""
+    """Class that initializes a rectangle and the number of instances"""
+    number_of_instances = 0
+
     def __init__(self, width=0, height=0):
         """Function that initializes the rectangle."""
         msg_err_int = "width must be an integer"
@@ -20,6 +22,7 @@ class Rectangle:
         if height < 0:
             raise ValueError(msg_err_neg)
         self.__height = height
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -77,3 +80,8 @@ class Rectangle:
     def __repr__(self):
         """Function that returns a string representation of the rectangle."""
         return "Rectangle({}, {})".format(self.__width, self.__height)
+
+    def __del__(self):
+        """Function that prints a string when an instance is being deleted"""
+        Rectangle.number_of_instances -= 1
+        print("Bye rectangle...")
