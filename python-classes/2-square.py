@@ -10,7 +10,8 @@ class Square:
         """Function that initializes the size.
         
         Args:
-            size (int): size of the square
+            size (int, optional): Defaults to 0
+                size of the square
         """
         msg_err = "size must be an integer"
         msg_err_size = "size must be >= 0"
