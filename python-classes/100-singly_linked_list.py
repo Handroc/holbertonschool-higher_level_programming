@@ -68,8 +68,6 @@ class SinglyLinkedList:
         current_node = self.__head
         linklist = ""
         while current_node:
-            linklist += str(current_node.data)
-            if current_node.next_node:
-                linklist += '\n'
+            linklist += str(current_node.data) + "\n"
             current_node = current_node.next_node
         return linklist
