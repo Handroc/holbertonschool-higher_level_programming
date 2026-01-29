@@ -70,4 +70,4 @@ class SinglyLinkedList:
         while current_node:
             linklist += str(current_node.data) + "\n"
             current_node = current_node.next_node
-        return linklist
+        return linklist.rstrip("\n")
