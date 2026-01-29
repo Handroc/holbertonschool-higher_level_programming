@@ -12,8 +12,8 @@ class Node:
         if not isinstance(data, int):
             raise TypeError(msg_err_int)
         self.__data = data
-        msg_err_node = "next node must be a Node object"
-        if next_node is not None and not isinstance(next_node, Node):
+        msg_err_node = "next_node must be a Node object"
+        if not isinstance(next_node, Node) and next_node is not None:
             raise TypeError(msg_err_node)
         self.__next_node = next_node
 
@@ -38,7 +38,7 @@ class Node:
     @next_node.setter
     def next_node(self, value):
         """Function that sets the next node"""
-        msg_err_node = "next node must be a Node object"
+        msg_err_node = "next_node must be a Node object"
         if not isinstance(value, Node) and value is not None:
             raise TypeError(msg_err_node)
         self.__next_node = value
@@ -68,6 +68,8 @@ class SinglyLinkedList:
         current_node = self.__head
         linklist = ""
         while current_node:
-            linklist += str(current_node.data) + "\n"
+            linklist += str(current_node.data)
+            if current_node.next_node:
+                linklist += '\n'
             current_node = current_node.next_node
-        return linklist.rstrip("\n")
+        return linklist
