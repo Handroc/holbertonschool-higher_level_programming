@@ -15,11 +15,11 @@ class Square:
             raise TypeError(msg_err)
         if size < 0:
             raise ValueError(msg_err_size)
-        if not (isinstance(position, tuple)):
-            raise TypeError(msg_err_tuple)
-        if not (isinstance(position[0], int)) or not (isinstance(position[1], int)):
-            raise TypeError(msg_err_tuple)
-        if position[0] < 0 or position[1] < 0:
+        if (not (isinstance(position, tuple))
+                or len(position) != 2
+                or not (isinstance(position[0], int))
+                or not (isinstance(position[1], int))
+                or position[0] < 0 or position[1] < 0):
             raise TypeError(msg_err_tuple)
         self.__size = size
         self.__position = position
@@ -55,13 +55,11 @@ class Square:
         :param value: position value
         """
         msg_err_tuple = "position must be a tuple of 2 positive integers"
-        if not (isinstance(value, tuple)):
-            raise TypeError(msg_err_tuple)
-        if len(value) != 2:
-            raise TypeError(msg_err_tuple)
-        if not (isinstance(value[0], int)) or not (isinstance(value[1], int)):
-            raise TypeError(msg_err_tuple)
-        if value[0] < 0 or value[1] < 0:
+        if (not (isinstance(value, tuple))
+                or len(value) != 2
+                or not (isinstance(value[0], int))
+                or not (isinstance(value[1], int))
+                or value[0] < 0 or value[1] < 0):
             raise TypeError(msg_err_tuple)
         self.__position = value
 
@@ -77,5 +75,4 @@ class Square:
             for _ in range(self.__position[1]):
                 print()
             for _ in range(self.__size):
-                print(' ' * self.__position[0], end='')
-                print("#" * self.__size)
+                print(' ' * self.__position[0] + "#" * self.__size)
