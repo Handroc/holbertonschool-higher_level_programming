@@ -13,7 +13,7 @@ class Node:
             raise TypeError(msg_err_int)
         self.__data = data
         msg_err_node = "next node must be a Node object"
-        if not isinstance(next_node, Node) and next_node is not None:
+        if next_node is not None and not isinstance(next_node, Node):
             raise TypeError(msg_err_node)
         self.__next_node = next_node
 
