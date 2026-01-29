@@ -38,6 +38,7 @@ class Node:
             raise TypeError(msg_err_node)
         self.__next_node = value
 
+
 class SinglyLinkedList:
     """Class that defines a singly linked list"""
     def __init__(self):
