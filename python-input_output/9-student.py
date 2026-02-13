@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module defining a basic Student class with JSON output."""
 
+
 class Student:
     """Represents a student with a JSON-friendly dictionary."""
     def __init__(self, first_name, last_name, age):

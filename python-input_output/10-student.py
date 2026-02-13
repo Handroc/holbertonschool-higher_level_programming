@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module defining a Student class with filtered JSON output."""
 
+
 class Student:
     """Represents a student with optional attribute filtering."""
     def __init__(self, first_name, last_name, age):

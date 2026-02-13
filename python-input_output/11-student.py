@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module defining a Student class with reloadable JSON data."""
 
+
 class Student:
     """Represents a student that can reload its attributes."""
     def __init__(self, first_name, last_name, age):
