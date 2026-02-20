@@ -28,7 +28,7 @@ def status():
 
 @app.route("/add_user", methods=["POST"])
 def add_user():
-    new_user = request.get_json()
+    new_user = request.get_json(silent=True)
     if not new_user:
         return ({"error" : "Invalid JSON"}), 400
     if "username" not in new_user:
