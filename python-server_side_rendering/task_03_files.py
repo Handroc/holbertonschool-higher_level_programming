@@ -1,111 +1,50 @@
-#!/usr/bin/python3
-"""Flask app that displays product data from JSON or CSV files."""
-
-import csv
-import json
-from pathlib import Path
-
 from flask import Flask, render_template, request
-
+import json
+import csv
 
 app = Flask(__name__)
-BASE_DIR = Path(__file__).resolve().parent
-PRODUCTS_JSON = BASE_DIR / "products.json"
-PRODUCTS_CSV = BASE_DIR / "products.csv"
 
 
-def load_products_from_json():
-    """Read product data from the JSON file."""
-    with PRODUCTS_JSON.open("r", encoding="utf-8") as file:
-        data = json.load(file)
-
-    return [
-        {
-            "id": int(product["id"]),
-            "name": product["name"],
-            "category": product["category"],
-            "price": float(product["price"]),
-        }
-        for product in data
-    ]
+def read_json():
+    with open('products.json', 'r') as f:
+        return json.load(f)
 
 
-def load_products_from_csv():
-    """Read product data from the CSV file."""
-    with PRODUCTS_CSV.open("r", encoding="utf-8", newline="") as file:
-        reader = csv.DictReader(file)
-        return [
-            {
-                "id": int(product["id"]),
-                "name": product["name"],
-                "category": product["category"],
-                "price": float(product["price"]),
-            }
-            for product in reader
-        ]
+def read_csv():
+    products = []
+    with open('products.csv', 'r') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            products.append({
+                'id': int(row['id']),
+                'name': row['name'],
+                'category': row['category'],
+                'price': float(row['price'])
+            })
+    return products
 
 
-@app.route("/")
-def home():
-    """Render the home page."""
-    return render_template("index.html")
-
-
-@app.route("/about")
-def about():
-    """Render the about page."""
-    return render_template("about.html")
-
-
-@app.route("/contact")
-def contact():
-    """Render the contact page."""
-    return render_template("contact.html")
-
-
-@app.route("/products")
+@app.route('/products')
 def products():
-    """Render product data from the selected source."""
-    source = request.args.get("source")
-    product_id = request.args.get("id")
+    source = request.args.get('source')
+    product_id = request.args.get('id', type=int)
 
-    if source == "json":
-        products_data = load_products_from_json()
-    elif source == "csv":
-        products_data = load_products_from_csv()
+    # Vérification de la source
+    if source == 'json':
+        data = read_json()
+    elif source == 'csv':
+        data = read_csv()
     else:
-        return render_template(
-            "product_display.html",
-            error="Wrong source",
-            products=[],
-        )
+        return render_template('product_display.html', error="Wrong source")
 
+    # Filtrage par id si fourni
     if product_id is not None:
-        try:
-            requested_id = int(product_id)
-        except ValueError:
-            return render_template(
-                "product_display.html",
-                error="Product not found",
-                products=[],
-            )
+        data = [p for p in data if p['id'] == product_id]
+        if not data:
+            return render_template('product_display.html', error="Product not found")
 
-        products_data = [
-            product for product in products_data if product["id"] == requested_id
-        ]
-        if not products_data:
-            return render_template(
-                "product_display.html",
-                error="Product not found",
-                products=[],
-            )
-
-    return render_template(
-        "product_display.html",
-        error=None,
-        products=products_data,
-    )
+    return render_template('product_display.html', products=data)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True, port=5000)
