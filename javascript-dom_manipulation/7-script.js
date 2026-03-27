@@ -1,12 +1,14 @@
 const myurl = 'https://swapi-api.hbtn.io/api/films/?format=json';
-const my_list = document.querySelector('#list_movies');
+const movieList = document.querySelector('#list_movies');
 
 fetch(myurl)
-  .then(response =>{
+  .then(response => {
     return response.json();
   })
-  .then(data =>{
+  .then(data => {
     for (const item of data.results) {
-        my_list.append(item.title);
+      const listItem = document.createElement('li');
+      listItem.textContent = item.title;
+      movieList.appendChild(listItem);
     }
-  })
+  });

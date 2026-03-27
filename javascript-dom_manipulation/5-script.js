@@ -1,6 +1,6 @@
-const my_list = document.querySelector('header');
+const header = document.querySelector('header');
 const clickheaders = document.querySelector('#update_header');
 
 clickheaders.addEventListener('click', function () {
-  my_list.textContent = 'New Header!!!';
+  header.textContent = 'New Header!!!';
 });
