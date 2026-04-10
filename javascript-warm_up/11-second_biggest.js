@@ -1,27 +1,9 @@
 #!/usr/bin/node
-if (process.argv.length <= 3) {
+const args = process.argv.slice(2).map(Number);
+
+if (args.length <= 1) {
   console.log(0);
-  process.exit();
+} else {
+  args.sort((a, b) => b - a);
+  console.log(args[1]);
 }
-
-let biggest = process.argv[2];
-
-for (let i = 3; i < process.argv.length; i++) {
-  const b = process.argv[i + 1];
-  if (b > biggest) {
-    biggest = b;
-  }
-}
-
-let biggest1 = process.argv[2];
-
-for (let i = 3; i < process.argv.length; i++) {
-  const b = process.argv[i + 1];
-  if (!(b === biggest)) {
-    if (b > biggest1) {
-      biggest1 = b;
-    }
-  }
-}
-
-console.log(biggest1);
